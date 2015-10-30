@@ -10,11 +10,11 @@
                 var fn = $parse(attr['ngLoad']);
 
                 return function(scope, element, attr) {
-                    element.on('load', function(event) {
+                    element[0].onload = function(event) {
                         scope.$apply(function() {
                             fn(scope, {$event:event});
                         });
-                    });
+                    };
                 };
 
             }
